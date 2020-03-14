@@ -1,6 +1,8 @@
 '''
-This program creates passwords using words
-instead of random letters and numbers.
+File Name    : passgen.py
+Author       : BFCY
+Description  : This program creates passwords using words
+             : instead of random letters and numbers.
 '''
 
 import random
