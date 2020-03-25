@@ -6,6 +6,7 @@ Description  : This program creates passwords using words
 '''
 import random
 
+
 # I/P: filehandle to a wordlist text file
 # O/P: returns a list of words and random word from the list
 def parsefile(filehandle):
@@ -14,6 +15,7 @@ def parsefile(filehandle):
 	linecount = len(lines)
 
 	return lines, linecount
+
 
 # I/P: wordList and numOfLines
 def randomWord(wordList, numOfLines):
@@ -35,6 +37,24 @@ def randomNum(maxVal):
 	return(rlinenum)
 
 
+def checkinput(numOfWords):
+
+	try:
+		testinput = int(numOfWords)
+		if testinput < 0:
+			print('positive integers only')
+			return False
+	except ValueError:
+		try:
+			testinput = float(numOfWords)
+			print("ValueError: Positive integers only")
+			return False
+		except ValueError:
+			print("TypeError: Please enter a nonnegative number")
+			return False
+
+	return True
+
 
 def main():
 
@@ -45,21 +65,9 @@ def main():
 	wordList, numOfLines = parsefile(fhand)
 	
 	print("Pass Phrase Generator")
-
 	passphrasewords = input("Number of words: ")
-	testinput = passphrasewords
-	
-	try:
-		testinput = int(passphrasewords)
-		if testinput < 0:
-			print('positive integers only')
-	except ValueError:
-		try:
-			testinput = float(passphrasewords)
-			print("ValueError: Positive integers only")
-		except ValueError:
-			print("TypeError: Please enter a nonnegative number")
-	else:
+
+	if checkinput(passphrasewords):
 		for passphraseword in range(int(passphrasewords)):
 			rword = randomWord(wordList, numOfLines)
 			print(rword)
