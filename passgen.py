@@ -1,8 +1,9 @@
 '''
-File Name    : passgen.py
-Author       : BFCY
-Description  : This program creates passwords using words
-             : instead of random letters and numbers.
+File Name    : 	passgen.py
+Author       : 	BFCY
+Description  : 	This program creates passwords using words
+             : 	instead of random letters, numbers and special 
+				characters
 '''
 import random
 
@@ -28,7 +29,7 @@ def randomWord(wordList, numOfLines):
 	elif (wordsPerLine == 1): 	
 		return(wordList[randomline])
 
-
+# Returns a random line number for wordlist 
 # I/P: number of words in the wordlist file
 # O/P: a random number within that range
 def randomNum(maxVal):
@@ -37,6 +38,28 @@ def randomNum(maxVal):
 	return(rlinenum)
 
 
+# Ask user for input 
+# I/P: user entered number
+# O/P: returns that number as a string
+def getinput():
+	print("Pass Phrase Generator")
+	numOfWords = input("Number of words: ")
+
+	return numOfWords
+
+# Prints words if user input is valid
+# I/P: user entered number and wordlist
+# O/P: words from the wordlist
+def printWords(numWords, wordList, numOfLines):
+	if checkinput(numWords):
+		for word in range(int(numWords)):
+			rword = randomWord(wordList, numOfLines)
+			print(rword)
+
+
+# Check to see if user entered a valid number
+# I/P: user entered number
+# O/P: True if i/p is valid, false and msg if invalid
 def checkinput(numOfWords):
 
 	try:
@@ -58,19 +81,15 @@ def checkinput(numOfWords):
 
 def main():
 
-	#fhand = open('words/word-list-65635.txt')
-	fhand = open('words/eff_large_wordlist.txt')
-	#fhand = open('words/eng_words.txt')
+	#fhand = open('wordlists/word-list-65635.txt')
+	fhand = open('wordlists/eff_large_wordlist.txt')
+	#fhand = open('wordlists/eng_words.txt')
 	
 	wordList, numOfLines = parsefile(fhand)
-	
-	print("Pass Phrase Generator")
-	passphrasewords = input("Number of words: ")
+	numWords = getinput()
 
-	if checkinput(passphrasewords):
-		for passphraseword in range(int(passphrasewords)):
-			rword = randomWord(wordList, numOfLines)
-			print(rword)
+	printWords(numWords, wordList, numOfLines)
+
 
 
 if __name__ == '__main__':
