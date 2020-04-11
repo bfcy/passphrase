@@ -22,12 +22,7 @@ def parsefile(filehandle):
 def randomWord(wordList, numOfLines):
 	randomline = randomNum(numOfLines)
 
-	wordsPerLine = len(wordList[randomline].split())
-
-	if (wordsPerLine == 2):
-		return(wordList[randomline].split()[1])
-	elif (wordsPerLine == 1): 	
-		return(wordList[randomline])
+	return(wordList[randomline])
 
 # Returns a random line number for wordlist 
 # I/P: number of words in the wordlist file
@@ -53,7 +48,7 @@ def getinput():
 def printWords(numWords, wordList, numOfLines):
 	if checkinput(numWords):
 		for word in range(int(numWords)):
-			rword = randomWord(wordList, numOfLines)
+			rword = randomWord(wordList, numOfLines).rstrip()
 			print(rword)
 
 
@@ -78,13 +73,15 @@ def checkinput(numOfWords):
 
 	return True
 
+def openWordList():
+	#fhand = open('wordlists/word-list-65635.txt')
+	fh = open('wordlists/eff_large_wordlist_wordsonly.txt')
+	#fhand = open('wordlists/eng_words.txt')
+	return fh
 
 def main():
 
-	#fhand = open('wordlists/word-list-65635.txt')
-	fhand = open('wordlists/eff_large_wordlist.txt')
-	#fhand = open('wordlists/eng_words.txt')
-	
+	fhand = openWordList()
 	wordList, numOfLines = parsefile(fhand)
 	numWords = getinput()
 
