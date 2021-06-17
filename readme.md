@@ -5,6 +5,7 @@ Passwords consisting of random letters, numbers and special characters can be ha
 
 ## Getting Started
 You can clone this and run it with Python as follows:
+
 python passgen.py
 
 or
