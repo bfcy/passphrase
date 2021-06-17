@@ -1,18 +1,18 @@
 
 
-A Pass Phrase Generator
-Rather than using random letters, numbers and special characters to create a password, a pass phrase consisting of a series of words can be more secure and memorable. 
+## A Pass Phrase Generator
+Passwords consisting of random letters, numbers and special characters can be hard to memorize. But a password consisting of a series of words can be more memorable, and secure. 
 
-Getting Started
+## Getting Started
 You can clone this and run it with Python.
 
-Prerequisites
+## Prerequisites
 Python
 
-Author
+## Author
 BFCY
 
-References
+## References
 Background info and wordlist from:
 https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases
 http://www.webplaces.com/passwords/passphrase-word-lists.htm
